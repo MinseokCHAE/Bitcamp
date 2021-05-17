@@ -25,8 +25,7 @@ class Fourcal() :
 
 
 if __name__ == '__main__':
-    c = Fourcal()
-    c = a
+    a = Fourcal()
     a.setdata(12, 4)
 
     print(a.first + a.second)
