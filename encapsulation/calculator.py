@@ -1,5 +1,5 @@
 
-class Fourcal() :
+class Fourcal():
     def setdata(self, first, second):
         self.first = first
         self.second = second
@@ -25,7 +25,10 @@ class Fourcal() :
 
 
 if __name__ == '__main__':
-    a = Fourcal()
+    c = Fourcal()
+
+    a = c
+
     a.setdata(12, 4)
 
     print(a.first + a.second)
