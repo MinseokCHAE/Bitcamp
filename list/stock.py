@@ -12,7 +12,7 @@ class Stock(object):
     def main():
         list = []
         while 1:
-            menu = int(input('0. 프로그램 종료 1. 종목추가 2. 출력 3. 삭제'))
+            menu = int(input('0.프로그램 종료 1.종목추가 2.출력 3.삭제 4.수정'))
             if menu == 0:
                 break
 
@@ -27,7 +27,15 @@ class Stock(object):
                 del_name = input('삭제할 종목명을 입력하세요')
                 for i, j in enumerate(list):
                     if j.name == del_name:
-                        del list(i)
+                        del list[i]
+
+            elif menu == 4:
+                edit_name = input('수정할 종목명을 입력하세요')
+                edit_info = Stock(edit_name, input('수정할 종목코드를 입력하세요'))
+                for i, j in enumerate(list):
+                    if j.name == edit_name:
+                        del list[i]
+                        list.append(edit_info)
 
             else:
                 print('잘못된 입력입니다.')
