@@ -14,7 +14,6 @@ class Grade(object):
 
     def get_grade(self):
         score = int(self.avr())
-        grade = ''
         if score >= 90:
             grade = 'A'
 
