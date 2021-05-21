@@ -13,10 +13,17 @@ class Contacts(object):
 
 
     @staticmethod
+    def del_name(list, name):
+        for i, j in enumerate(list):
+            if j.name == name:
+                del list[i]
+
+
+    @staticmethod
     def main():
         list = []
         while 1:
-            menu = int(input('0. 프로그램 종료 1. 주소록 추가 2. 출력 3. 삭제 4, 수정'))
+            menu = int(input('0. 프로그램 종료 1. 주소록 추가 2. 출력 3. 수정 4, 삭제'))
             if menu == 0:
                 break
 
@@ -29,19 +36,15 @@ class Contacts(object):
                     print(f'출력결과 : {j.get_info()}')
 
             elif menu == 3:
-                del_name = input('삭제할 이름')
-                for i, j in enumerate(list):
-                    if j.name == del_name:
-                        del list[i]
+                name = input('수정할 이름')
+                edit_info = Contacts(name, input('전화번호를 입력하세요'),
+                                     input('이메일을 입력하세요'), input('주소를 입력하세요'))
+                Contacts.del_name(list, name)
+                list.append(edit_info)
 
             elif menu == 4:
-                edit_name = input('수정할 이름')
-                edit_info = Contacts(edit_name, input('전화번호를 입력하세요'),
-                             input('이메일을 입력하세요'), input('주소를 입력하세요'))
-                for i, j in enumerate(list):
-                    if j.name == edit_name:
-                        del list[i]
-                        list.append(edit_info)
+                name = input('삭제할 이름')
+                Contacts.del_name(list, name)
 
             else:
                 print('잘못된 입력입니다.')
