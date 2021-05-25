@@ -13,15 +13,11 @@ class BugsMusic(object):
     @staticmethod
     def get_ranking():
         bugs = BugsMusic()
-        soup = BeautifulSoup(urlopen(bugs.url), 'lxml')
+
         xx = input('pass')
-        count = 0
-        for link in soup.find_all(name='p', attrs=({"class": xx})):
-            count += 1
-            print(f"{str(count)}위")
-            print(f"{xx} : {link.find('a').text}")
 
 
+#https://music.bugs.co.kr/chart/track/realtime/total?wl_ref=M_contents_03_01
     @staticmethod
     def main():
         bugs = BugsMusic()
@@ -36,7 +32,12 @@ class BugsMusic(object):
                 bugs.url = input('URL 입력')
 
             elif menu == 2:
-                BugsMusic.get_ranking()
+                soup = BeautifulSoup(urlopen(bugs.url), 'lxml')
+                count = 0
+                for link in soup.find_all(name='p', attrs=({"class": "artist"})):
+                    count += 1
+                    print(f"{str(count)}위")
+                    print(f"artist : {link.find('a').text}")
 
             elif menu == 3:
                 BugsMusic.get_ranking()
