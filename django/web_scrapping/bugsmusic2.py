@@ -1,4 +1,4 @@
-
+import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 
@@ -10,6 +10,7 @@ class BugsMusic(object):
     title_ls = []
     artist_ls = []
     dict = {}
+    df = None
 
     def set_url(self, detail):
         self.url = requests.get(f'{self.url}{detail}', headers=self.headers).text
@@ -24,7 +25,10 @@ class BugsMusic(object):
             self.artist_ls.append(i.find("a").text)
 
     def insert_title_dict(self):
-
+        # 방법 3. enumerate
+        for i, j in enumerate(self.title_ls):
+            self.dict[j] = self.artist_ls[i]
+        ''' 
         # 방법 1. range
         for i in range(0, len(self.title_ls)):
             self.dict[self.title_ls[i]] = self.artist_ls[i]
@@ -34,15 +38,23 @@ class BugsMusic(object):
         # 방법 3. enumerate
         for i, j in enumerate(self.title_ls):
             self.dict[self.title_ls[j]] = self.artist_ls[i]
-
+        '''
         print(dict)
+
+    def dict_to_frame(self):
+        self.df = pd.DataFrame.from_dict(self.dict, orient='index')
+        print(self.df)
+
+    def df_to_csv(self):
+        path = './data/bugs.csv'
+        self.df.to_csv(path, sep=',', na_rep='nan')
 
 
     @staticmethod
     def main():
         bugs = BugsMusic()
         while 1:
-            menu = input('0-exit, 1-input time, 2-output, 3-print dict')
+            menu = input('0-exit, 1-input time, 2-output, 3-print dict, 4-print df, 5-df to csv')
             if menu == '0':
                 break
             elif menu == '1':
@@ -53,6 +65,10 @@ class BugsMusic(object):
                 bugs.get_ranking()
             elif menu == '3':
                 bugs.insert_title_dict()
+            elif menu == '4':
+                bugs.dict_to_frame()
+            elif menu == '5':
+                bugs.df_to_csv()
             else:
                 print('Wrong Number')
                 continue
