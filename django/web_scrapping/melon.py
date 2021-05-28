@@ -49,7 +49,7 @@ class Melon(object):
         m = Melon()
 
         while 1:
-            menu = int(input('0.exit 1.input 2.output 3.pass 4.print df 5.df to csv'))
+            menu = int(input('0.exit 1.input 2.output 3.pass 4.print df 5.df to data'))
 
             if menu == 0:
                 break

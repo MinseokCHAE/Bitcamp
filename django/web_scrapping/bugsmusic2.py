@@ -54,7 +54,7 @@ class BugsMusic(object):
     def main():
         bugs = BugsMusic()
         while 1:
-            menu = input('0-exit, 1-input time, 2-output, 3-print dict, 4-print df, 5-df to csv')
+            menu = input('0-exit, 1-input time, 2-output, 3-print dict, 4-print df, 5-df to data')
             if menu == '0':
                 break
             elif menu == '1':
