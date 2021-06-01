@@ -31,6 +31,3 @@ if __name__ == '__main__':
         else:
             print('잘못된입력')
             continue
-
-
-
