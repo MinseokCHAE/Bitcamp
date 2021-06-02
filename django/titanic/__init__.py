@@ -1,4 +1,6 @@
 from titanic.views.controller import Controller
+from titanic.models.dataset import Dataset
+from titanic.models.service import Service
 from titanic.templates.plot import Plot
 
 
@@ -9,7 +11,7 @@ if __name__ == '__main__':
                          '1.data visualization\n'
                          '2.modeling\n'
                          '3.machine learning\n'
-                         '4.machine release'))
+                         '4.submit'))
         if menu == 0:
             break
 
@@ -23,10 +25,10 @@ if __name__ == '__main__':
             Controller().modeling('train.csv', 'test.csv')
 
         elif menu == 3:
-            pass
+            Controller().learning('train.csv', 'test.csv')
 
         elif menu == 4:
-            pass
+            Controller().submit('train.csv', 'test.csv')
 
         else:
             print('잘못된입력')
