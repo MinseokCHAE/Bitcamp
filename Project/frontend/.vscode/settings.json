@@ -1,4 +1,5 @@
 {
     "editor.fontFamily": "'Magic R Regular'",
-    "editor.fontSize": 17
+    "editor.fontSize": 17,
+    "editor.cursorStyle": "block"
 }
