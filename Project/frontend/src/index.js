@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import App from './App';
-import Signup from './user/SignUp';
-import Login from './user/Login';
-import UserList from './user/UserList';
+import '/index.css';
+import reportWebVitals from '/reportWebVitals';
+import App from '/App';
+import {BrowserRouter} from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <Signup />
-    <Login />
-    <UserList />
-    
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
