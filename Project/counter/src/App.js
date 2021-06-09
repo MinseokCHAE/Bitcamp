@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from "react-router-dom"
-import { Counter, Todo } from 'Components/index'
+import { Counter, Todo, Todos } from 'Components/index'
 import { Home } from 'Common/index'
 
 
@@ -10,6 +10,7 @@ const App = () => {
     <Route exact path = '/' component = {Home}/>
     <Route exact path = '/' component = {Counter}/>
     <Route exact path = '/' component = {Todo}/>
+    <Route exact path = '/' component = {Todos}/>
     </>
   )
 }
