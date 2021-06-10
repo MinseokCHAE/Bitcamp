@@ -1,9 +1,10 @@
-from real_estate.models import HousingDTO
+from real_estate.model import HousingDTO
+from common.service import CommonService
 import pandas as pd
 import xlwings as xw
 
 
-class HousingService(object):
+class HousingService(CommonService):
     dto = HousingDTO()
 
     # create DF

@@ -1,11 +1,8 @@
-from real_estate.services import HousingService
-from real_estate.models import HousingDTO
-from common.views import CommonView
+from real_estate.service import HousingService
+from common.service import CommonService
 
 
-class HousingApi(CommonView):
-
-    def print():
+class HousingAPI(CommonService):
 
     @staticmethod
     def main():
@@ -16,8 +13,7 @@ class HousingApi(CommonView):
                 break
 
             elif menu == 1:
-                HousingDTO().dframe = HousingService().new_model('housing')
-                HousingApi.print(HousingDTO().dframe)
+                HousingService().print(HousingService().new_model('housing'))
 
             elif menu == 2:
                 pass
@@ -26,4 +22,4 @@ class HousingApi(CommonView):
                 print('wrong input')
                 continue
 
-HousingApi.main()
+HousingAPI.main()

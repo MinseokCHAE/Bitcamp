@@ -21,7 +21,7 @@ class DataTransferObject(object):
     def fname(self, fname): self._fname = fname
 
     @property
-    def dframe(self) -> object: return self.dframe
+    def dframe(self) -> object: return self._dframe
 
     @dframe.setter
     def dframe(self, dframe): self._dframe = dframe
