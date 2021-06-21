@@ -7,6 +7,7 @@ class FileDTO(object):
     context: str
     fname: str
     dframe: object
+    url: object
 
     @property
     def context(self) -> str: return self._context
@@ -26,3 +27,9 @@ class FileDTO(object):
 
     @dframe.setter
     def dframe(self, dframe): self._dframe = dframe
+
+    @property
+    def url(self) -> object: return self._url
+
+    @url.setter
+    def url(self, url): self._url = url

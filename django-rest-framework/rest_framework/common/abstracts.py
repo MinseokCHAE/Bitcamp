@@ -8,7 +8,6 @@ class PrinterBase(metaclass=ABCMeta):
 
 
 class ReaderBase(metaclass=ABCMeta):
-
     @abstractmethod
     def new_file(self):
         pass
@@ -23,4 +22,10 @@ class ReaderBase(metaclass=ABCMeta):
 
     @abstractmethod
     def json(self):
+        pass
+
+
+class ScraperBase(metaclass=ABCMeta):
+    @abstractmethod
+    def driver(self):
         pass
