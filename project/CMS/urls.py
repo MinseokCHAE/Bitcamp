@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from CMS.common.views import Hello
 
 urlpatterns = [
-    path('CMS/', admin.site.urls),
+    path('test', Hello.as_view()),
 ]
