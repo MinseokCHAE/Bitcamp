@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from CMS.common.views import Hello
+from CMS.common.views import Connection
 
 urlpatterns = [
-    path('test', Hello.as_view()),
+    path('connection', Connection.as_view()),
 ]
