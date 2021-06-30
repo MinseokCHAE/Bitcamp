@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-const ItemDetail = () => {
+const PostRemove = () => {
     return (<>
    
     </>)
 }
 
-export default ItemDetail
+export default PostRemove

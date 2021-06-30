@@ -3,14 +3,14 @@ from .models import Member
 
 
 class MemberSerializer(serializers.Serializer):
-    userid = serializers.models.CharField()
+    userid = serializers.CharField()
     password = serializers.CharField()
     name = serializers.CharField()
     email = serializers.CharField()
 
     class Meta:
         model = Member
-        fields = ['userid', 'password', 'name', 'email']
+        fields = '__all__'
 
     def create(self, validated_data):
         return Member.objects.create(**validated_data)

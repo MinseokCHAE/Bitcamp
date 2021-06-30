@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const UserMenu = () => (   
     <nav style = {{ width: '500px', margin: '0 auto' }}>
@@ -12,7 +12,7 @@ export const UserMenu = () => (
             <li><Link to = '/user-remove'>UserRemove</Link></li>
         </ol>
     </nav>
-)
+);
 
 export const ItemMenu = () => (  
     <nav style = {{ width: '500px', margin: '0 auto' }}>
@@ -23,7 +23,18 @@ export const ItemMenu = () => (
             <li><Link to = '/item-remove'>ItemRemove</Link></li>
         </ol>
     </nav>
-)
+);
+
+export const BoardMenu = () => (  
+    <nav style = {{ width: '500px', margin: '0 auto' }}>
+        <ol>
+            <li><Link to = '/post-list'>PostList</Link></li>
+            <li><Link to = '/post-write'>PostWrite</Link></li>
+            <li><Link to = '/post-modify'>PostModify</Link></li>
+            <li><Link to = '/post-remove'>PostRemove</Link></li>
+        </ol>
+    </nav>
+);
 
 export const ArticleMenu = () => (
     <nav style = {{ width: '500px', margin: '0 auto' }}>
@@ -34,5 +45,5 @@ export const ArticleMenu = () => (
             <li><Link to = '/article-remove'>ArticleRemove</Link></li>
         </ol>
     </nav>
-)
+);
 

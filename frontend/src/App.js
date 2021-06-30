@@ -1,8 +1,9 @@
 import React from 'react'
 import { Redirect, Route, Link} from "react-router-dom"
-import { Home, User, Item} from 'templates'
+import { Home, User, Item, Board } from 'templates'
 import { Login, SignUp, UserDetail, UserEdit, UserList } from 'user'
 import { ItemList, ItemRegister, ItemDetail, ItemRemove } from 'item'
+import { PostList, PostWrite, PostModify, PostRemove } from 'board'
 import { Nav } from 'common'
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -16,6 +17,7 @@ const App = () => {
                 <li><Link to='/home'>Home</Link></li>
                 <li><Link to='/user'>User</Link></li>
                 <li><Link to='/item'>Item</Link></li>
+                <li><Link to='/board'>Board</Link></li>
                 
             </ol>
         </nav>
@@ -34,6 +36,13 @@ const App = () => {
           <Route exact path='/item-register' component={ItemRegister}/>
           <Route exact path='/item-detail' component={ItemDetail}/>
           <Route exact path='/item-remove' component={ItemRemove}/>
+
+          <Route exact path='/board' component={Board}/>
+          <Route exact path='/post-list' component={PostList}/>
+          <Route exact path='/post-write' component={PostWrite}/>
+          <Route exact path='/post-modify' component={PostModify}/>
+          <Route exact path='/post-remove' component={PostRemove}/>
+         
 
 
     </Router>

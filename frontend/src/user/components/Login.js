@@ -2,6 +2,9 @@ import React from 'react'
 
 
 const Login = () =>{
+
+
+
     return(<>
     <h2>Login Form</h2>
 <form action="/action_page.php" method="post">
@@ -10,11 +13,11 @@ const Login = () =>{
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required/>
+    <label for="userid"><b>ID</b></label>
+    <input type="text" placeholder="Enter ID" name="userid" required/>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required/>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required/>
         
     <button type="submit">Login</button>
     <label>

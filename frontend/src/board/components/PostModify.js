@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-const ItemDetail = () => {
+const PostModify = () => {
     return (<>
    
     </>)
 }
 
-export default ItemDetail
+export default PostModify

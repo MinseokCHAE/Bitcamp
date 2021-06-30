@@ -26,8 +26,7 @@ const SignUp = () => {
   const handleSubmit = e => {
     e.preventDefault()
     alert(`accept: ${JSON.stringify({...userInfo})}`)
-    const signupRequest = {...userInfo}
-    userSignup(signupRequest)
+    userSignup({...userInfo})
     .then(res => { alert(`signup success: ${res.data.result}`) 
     //history.push('login')
   })
@@ -41,13 +40,13 @@ const SignUp = () => {
 
   return (<>
   <div className='Signup'>
-    <form onSubmit={handleSubmit} method='get' style={{border:"1px solid #ccc"}}>
+    <form onSubmit={handleSubmit} method='post' style={{border:"1px solid #ccc"}}>
   <div className="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr/>
 
-    <label for="userid"><b>userID</b></label>
+    <label for="userid"><b>ID</b></label>
     <input type="text" placeholder="Enter ID" onChange={handleChange} name="userid" value={userid}/>
 
     <label for="password"><b>Password</b></label>

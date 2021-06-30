@@ -1,5 +1,5 @@
-from django.urls import path
-from . import views
+from django.conf.urls import url
+from .views import Boards_post
 
 
-urlpatterns = []
+urlpatterns = [url('/postwrite', Boards_post.as_view())]

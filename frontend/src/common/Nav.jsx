@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
                 <Link to='/home'>Home</Link>&nbsp;&nbsp;
                 <Link to='/user'>User</Link>&nbsp;&nbsp;
                 <Link to='/item'>Item</Link>&nbsp;&nbsp;
+                <Link to='/board'>Board</Link>&nbsp;&nbsp;
                 
               
               </Typography>

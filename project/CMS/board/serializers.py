@@ -5,8 +5,12 @@ from .models import Board
 class BoardSerializer(serializers.Serializer):
     title = serializers.CharField()
     content = serializers.CharField()
-    created_at = serializers.DateTimeField()
-    updated_at = serializers.DateTimeField()
+    created_at = serializers.DateTimeField(read_only=True)
+    updated_at = serializers.DateTimeField(read_only=True)
+
+    class Meta:
+        model = Board
+        fields = '__all__'
 
     def create(self, validated_data):
         return Board.objects.create(**validated_data)
