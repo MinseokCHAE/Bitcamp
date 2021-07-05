@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework import serializers
 from rest_framework import status
-from django.http.response import JsonResponse
+from django.http.response import JsonResponse, HttpResponse, Http404
 from .models import Member
 from .serializers import MemberSerializer
 
@@ -16,12 +16,18 @@ def members(request):
         serializer = MemberSerializer(all_members, many=True)
         return Response(data=serializer.data, status=201)
     elif request.method == 'POST':
-        new_member = request.data['body']
-        serializer = MemberSerializer(data=new_member)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
-        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = request.data['body']
+        pk = data['userid']
+        user_input_password = data['password']
+        member = Member.objects.get(pk=pk)
+        if member is not None:
+            if user_input_password == member.password:
+                return Response({'result': 'Login Success'}, status=201)
+            else:
+                return Response({'result': 'Incorrect Password'}, status=201)
+        else:
+            JsonResponse({'result': 'No Info'}, status=201)
+        return HttpResponse(status=104)
     elif request.method == 'DELETE':
         serializer = MemberSerializer()
         return JsonResponse(serializer.data, safe=False)

@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 
 export const UserMenu = () => (   
     <nav style = {{ width: '500px', margin: '0 auto' }}>
+        
         <ol>
-            <li><Link to = '/signup'>SignUp</Link></li>
             <li><Link to = '/login'>Login</Link></li>
+            <li><Link to= '/logout' onClick={() => localStorage.setItem("loginedUser","")}>Logout</Link></li>
+            <li><Link to = '/signup'>SignUp</Link></li>
             <li><Link to = '/user-detail'>UserDetail</Link></li>
             <li><Link to = '/user-list'>UserList</Link></li>
             <li><Link to = '/user-modify'>UserModify</Link></li>
             <li><Link to = '/user-remove'>UserRemove</Link></li>
         </ol>
+        
     </nav>
 );
 
@@ -47,3 +50,11 @@ export const ArticleMenu = () => (
     </nav>
 );
 
+/*
+{localStorage.getItem('loginedUser') === '' ?
+        <ol>
+            <li><Link to = '/login'>Login</Link></li>
+            <li><Link to = '/signup'>SignUp</Link></li>
+        </ol>
+        :
+        */

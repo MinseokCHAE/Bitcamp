@@ -45,27 +45,30 @@ const UserList = () => {
     })
   }, [])
 
+  const handleClick = user => {
+    localStorage.setItem("selectedUser", user)
+  }
+
+
   return (<>
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>User ID</TableCell>
-            <TableCell align="right">Password</TableCell>
-            <TableCell align="right">User Name</TableCell>
-            <TableCell align="right">User Email</TableCell>
+            <TableCell align='center'>User ID</TableCell>
+            <TableCell align="center">Password</TableCell>
+            <TableCell align="center">User Name</TableCell>
+            <TableCell align="center">User Email</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           { user.length != 0
            ? user.map((user) => (
                <TableRow key={user.userid}>
-               <TableCell component="th" scope="row">
-               {user.userid}
-               </TableCell>
-               <TableCell align="right">{user.password}</TableCell>
-               <TableCell align="right">{user.name}</TableCell>
-               <TableCell align="right">{user.email}</TableCell>
+               <TableCell align='center' component="th" scope="row">{user.userid}</TableCell>
+               <TableCell align="center">{user.password}</TableCell>
+               <TableCell align="center">{user.name}</TableCell>
+               <TableCell align="center">{user.email}</TableCell>
            </TableRow>
            ))
           :  <TableRow>
@@ -79,10 +82,7 @@ const UserList = () => {
       </Table>
     </TableContainer>
     <div className={pageClasses.root}>
-        <Pagination count={10} />
         <Pagination count={10} color="primary" />
-        <Pagination count={10} color="secondary" />
-        <Pagination count={10} disabled />
     </div>
     </>);
 }

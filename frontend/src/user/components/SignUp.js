@@ -25,7 +25,6 @@ const SignUp = () => {
   
   const handleSubmit = e => {
     e.preventDefault()
-    alert(`accept: ${JSON.stringify({...userInfo})}`)
     userSignup({...userInfo})
     .then(res => { alert(`signup success: ${res.data.result}`) 
     //history.push('login')
