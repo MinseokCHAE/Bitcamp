@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect, Route, Link} from "react-router-dom"
 import { Home, User, Item, Board } from 'templates'
-import { Login, SignUp, UserDetail, UserEdit, UserList } from 'user'
+import { Login, SignUp, UserDetail, UserEdit, UserList, UserRemove } from 'user'
 import { ItemList, ItemRegister, ItemDetail, ItemRemove } from 'item'
 import { PostList, PostWrite, PostModify, PostRemove } from 'board'
 import { Nav } from 'common'
@@ -30,6 +30,7 @@ const App = () => {
           <Route exact path='/user-detail' component={UserDetail}/>
           <Route exact path='/user-edit' component={UserEdit}/>
           <Route exact path='/user-list' component={UserList}/>
+          <Route exact path='/user-remove' component={UserRemove}/>
 
           <Route exact path='/item' component={Item}/>
           <Route exact path='/item-list' component={ItemList}/>

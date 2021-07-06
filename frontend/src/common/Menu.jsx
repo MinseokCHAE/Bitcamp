@@ -1,21 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router'
 
-export const UserMenu = () => (   
+export const UserMenu = () => {  
+    const history = useHistory()
+    return(
     <nav style = {{ width: '500px', margin: '0 auto' }}>
-        
+         {localStorage.getItem("loginedUser") === '' ?
         <ol>
             <li><Link to = '/login'>Login</Link></li>
-            <li><Link to= '/logout' onClick={() => localStorage.setItem("loginedUser","")}>Logout</Link></li>
-            <li><Link to = '/signup'>SignUp</Link></li>
-            <li><Link to = '/user-detail'>UserDetail</Link></li>
-            <li><Link to = '/user-list'>UserList</Link></li>
-            <li><Link to = '/user-modify'>UserModify</Link></li>
-            <li><Link to = '/user-remove'>UserRemove</Link></li>
+            <li><Link to='/signup'>SignUp</Link></li>
+        </ol>
+        :
+        <ol>
+            <li><Link to='/logout' onClick={() => {
+                localStorage.setItem("loginedUser","")
+                history.push("/home")
+                }}>Logout</Link></li>
+            <li><Link to='/user-list'>UserList</Link></li>
+            <li><Link to='/user-edit'>UserEdit</Link></li>
+            <li><Link to='/user-remove'>UserRemove</Link></li>
+            
         </ol>
         
-    </nav>
-);
+    }</nav>
+    )};
 
 export const ItemMenu = () => (  
     <nav style = {{ width: '500px', margin: '0 auto' }}>

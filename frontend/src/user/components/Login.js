@@ -14,20 +14,25 @@ const Login = () => {
     
   const handleSubmit = e => {
     e.preventDefault()
-    alert(`Click: ${JSON.stringify({...loginRequest})}`)
     userLogin({...loginRequest})
+
     .then(res => {
-      if(JSON.stringify(res.data[0]) === 'FAIL')
-      {alert(`Result : ${JSON.stringify(res.data[0])} `)}
-        else
-        {alert(`Result : ${res.data.result} `)
+      if(res.data.result === 'PASSWORD-FAIL')
+      {alert(`Incorrect Password`)
+      document.getElementById("userid").value = ""
+      document.getElementById("password").value = ""}
+      else if(res.data.result === 'USERNAME-FAIL'){
+        alert(`Incoreect ID`)
+        document.getElementById("userid").value = ""
+        document.getElementById("password").value = ""}
+      else
+        {alert(`Login Success`)
         localStorage.setItem('loginedUser', JSON.stringify(res.data))
         history.push('/user-list')
-
       }})
+
     .catch(err => {
       alert(`Result : ${err} `)
-
     })
   }
 

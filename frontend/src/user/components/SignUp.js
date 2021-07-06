@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import './SignUp.css'
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router';
 import { userSignup } from 'api'
@@ -14,23 +13,25 @@ const SignUp = () => {
     email: ''
   })
 
-  const { userid, password, name, email } = userInfo
+  const { userid, password, name, email } = `userInfo`
 
   const handleChange = e => {
     const { name, value } = e.target
     setUserInfo({
       ...userInfo, [name]: value
-    })
-  }
+    })}
   
   const handleSubmit = e => {
     e.preventDefault()
+    alert(`Confirm: ${JSON.stringify({...userInfo})}`)
     userSignup({...userInfo})
-    .then(res => { alert(`signup success: ${res.data.result}`) 
-    //history.push('login')
-  })
-    .catch(err => { alert(`signup failed: ${err}`)})
-  }
+    .then(res => {
+      alert(`Result : ${res.data.result} `)
+      history.push('/login')
+    })
+    .catch(err => {
+      alert(`Result : ${err} `)
+  })}
 
   const handleClick = e => {
     e.preventDefault()
