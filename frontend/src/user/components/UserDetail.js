@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 
 
 const UserDetail = () => {
-  const [user, setUser] = useState({})
+  const [member, setUser] = useState({})
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("selecteduser")))
+    setUser(JSON.parse(localStorage.getItem("selectedUser")))
   }, {})
     return (<>
   <div className="user-detail-card">
                 <h2 style={{"text-align":"center"}}>User Detail</h2>
                 <img src="https://www.w3schools.com/w3images/team2.jpg"  style={{"width":"100%"}}/>
-                <h1>{user.name}</h1>
+                <h1>{member.name}</h1>
                     <p className="user-detail-title">CEO & Founder, Example</p>
                     <p>Harvard University</p>
                     <div style={{"margin": "24px 0"}}>

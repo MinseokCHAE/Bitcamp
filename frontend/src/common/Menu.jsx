@@ -15,9 +15,10 @@ export const UserMenu = () => {
         <ol>
             <li><Link to='/logout' onClick={() => {
                 localStorage.setItem("loginedUser","")
-                history.push("/home")
+                history.push("/user")
                 }}>Logout</Link></li>
             <li><Link to='/user-list'>UserList</Link></li>
+            <li><Link to='/user-detail'>UserDetail</Link></li>
             <li><Link to='/user-edit'>UserEdit</Link></li>
             <li><Link to='/user-remove'>UserRemove</Link></li>
             

@@ -28,7 +28,7 @@ const Login = () => {
       else
         {alert(`Login Success`)
         localStorage.setItem('loginedUser', JSON.stringify(res.data))
-        history.push('/user-list')
+        history.push('/user')
       }})
 
     .catch(err => {

@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Pagination from '@material-ui/lab/Pagination';
 import { userList } from 'api'
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles({
@@ -37,7 +38,6 @@ const UserList = () => {
   useEffect(() => {
     userList()
     .then(res => {
-        console.log(res.data)
         setUser(res.data)
     })
     .catch(err => {
